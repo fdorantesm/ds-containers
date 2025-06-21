@@ -98,5 +98,5 @@ services:
       - copan_network
 
 networks:
-  ds:
+  copan_network:
     driver: bridge
