@@ -6,7 +6,7 @@ services:
     ports:
       - "2181:2181"
     networks:
-      - ds
+      - copan_network
     healthcheck:
       test: ["CMD", "/opt/bitnami/zookeeper/bin/zkServer.sh", "status"]
       interval: 10s
@@ -29,7 +29,7 @@ services:
       zookeeper:
         condition: service_healthy
     networks:
-      - ds
+      - copan_network
     healthcheck:
       test:
         [
@@ -54,7 +54,7 @@ services:
     ports:
       - "27017:27017"
     networks:
-      - ds
+      - copan_network
 
   postgres:
     image: postgres:17
@@ -67,7 +67,7 @@ services:
     ports:
       - "5432:5432"
     networks:
-      - ds
+      - copan_network
 
   kafka-ui:
     image: provectuslabs/kafka-ui:latest
@@ -83,7 +83,7 @@ services:
       kafka:
         condition: service_healthy
     networks:
-      - ds
+      - copan_network
 
   redis:
     image: redis:7.2.4
@@ -95,7 +95,7 @@ services:
       kafka:
         condition: service_healthy
     networks:
-      - ds
+      - copan_network
 
 networks:
   ds:
